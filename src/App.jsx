@@ -27,14 +27,15 @@ function App() {
                 <h4>{name}</h4>
                 <h5>{price}</h5>
               </div>
-              <article>
+              <article className='line-clamp-3'>
                 {info}
+                
               </article>
             </li>
           );
         })}
       </ul>
-      <button className="border-2 border-rose-600" onClick={() => {
+      <button className="border-2 border-rose-600 text-rose-600" onClick={() => {
          const getData=async () => {
     const response=await fetch(url);
     const data=await response.json();
