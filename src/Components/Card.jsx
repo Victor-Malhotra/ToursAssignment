@@ -31,6 +31,7 @@ const Cards=() => {
               <article>
                 {info}
               </article>
+              <button className='border-2 border-rose-600 text-rose-600'>Not Intrested</button>
             </li>
           );
         })}

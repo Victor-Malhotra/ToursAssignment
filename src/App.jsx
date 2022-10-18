@@ -1,4 +1,3 @@
-import './Styles/App.css';
 import React, { useState, useEffect } from 'react';
 const url="https://course-api.com/react-tours-project"
 
@@ -17,7 +16,7 @@ function App() {
 
   return (
     <>
-      <h3>data</h3>
+      <h3 className='text-3xl font-bold underline'>data</h3>
       <ul className="users">
         {data.map((place) => {
           const {id,name,info,image,price}=place;
@@ -35,7 +34,7 @@ function App() {
           );
         })}
       </ul>
-      <button className="btn" onClick={() => {
+      <button className="border-2 border-rose-600" onClick={() => {
          const getData=async () => {
     const response=await fetch(url);
     const data=await response.json();
