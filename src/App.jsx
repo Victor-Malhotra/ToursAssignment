@@ -4,7 +4,6 @@ const url="https://course-api.com/react-tours-project";
 
 function App() {
   const [data,setData]=useState([]);
-          const [readMore, setReadMore] = useState(true);
 
   const getData=async () => {
     const response=await fetch(url);
