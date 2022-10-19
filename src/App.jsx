@@ -10,6 +10,11 @@ function App() {
     const data=await response.json();
     setData(data);
   };
+  const removeData=async (id) => {
+    const response=await fetch(url);
+    let data=await response.json()
+    setData(delete data[id]);
+  };
 
   useEffect(() => {
     getData();
@@ -41,14 +46,8 @@ function App() {
       </ReactReadMoreReadLess>
               </div>
               <button className="border-2 border-rose-600 text-rose-600" onClick={() => {
-          const getData=async () => {
-          const response=await fetch(url);
-          let data=await response.json()
-          delete data[id]
-          setData(data);
-        };
-        getData()
-      }}>Not Intrested</button>
+                removeData(id)
+              }}>Not Intrested</button>
             </li>
               </div>
           );
