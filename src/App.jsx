@@ -3,18 +3,14 @@ import ReactReadMoreReadLess from 'react-read-more-read-less';
 const url="https://course-api.com/react-tours-project";
 
 function App() {
-  const [data,setData]=useState([]);
+  let [data,setData]=useState([]);
 
   const getData=async () => {
     const response=await fetch(url);
     const data=await response.json();
     setData(data);
   };
-  const removeData=async (id) => {
-    const response=await fetch(url);
-    let data=await response.json()
-    setData(delete data[id]);
-  };
+
 
   useEffect(() => {
     getData();
@@ -22,7 +18,7 @@ function App() {
 
   return (
     <>
-      <h3 className='text-3xl font-bold underline'>data</h3>
+      <h3 className='text-3xl font-bold underline text-blue-600'>Our Tours</h3>
       <ul className="users">
         {data.map((place) => {
           const {id,name,info,image,price}=place;
@@ -45,15 +41,22 @@ function App() {
         {info}
       </ReactReadMoreReadLess>
               </div>
-              <button className="border-2 border-rose-600 text-rose-600" onClick={() => {
-                removeData(id)
+                <button className="border-2 border-rose-600 text-rose-600" onClick={() => {
+                   const removeData=async (id) => {
+    const response=await fetch(url);
+                     const data=await response.json();
+                     const newData = data.filter((i)=>i.id !== id)
+                     setData(newData);
+                     console.log(place.id)
+                   };
+                  removeData(place.id)
               }}>Not Intrested</button>
             </li>
               </div>
           );
         })}
       </ul>
-      <button className="border-2 border-rose-600 text-rose-600" onClick={() => {
+      <button className="border-2 border-blue-600 bg-blue-700 text-white" onClick={() => {
          const getData=async () => {
     const response=await fetch(url);
     const data=await response.json();
