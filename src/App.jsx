@@ -42,9 +42,7 @@ function App() {
       </ReactReadMoreReadLess>
               </div>
                 <button className="border-2 border-rose-600 text-rose-600" onClick={() => {
-                   const removeData=async (id) => {
-    const response=await fetch(url);
-                     const data=await response.json();
+                   const removeData= (id) => {
                      const newData = data.filter((i)=>i.id !== id)
                      setData(newData);
                      console.log(place.id)
