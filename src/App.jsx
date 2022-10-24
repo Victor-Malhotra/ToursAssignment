@@ -17,7 +17,7 @@ function App() {
   },[]);
 
   return (
-    <>
+    <div className='flex justify-center items-center h-screen'>
       <h3 className='text-3xl font-bold underline text-blue-600'>Our Tours</h3>
       <ul className="users">
         {data.map((place) => {
@@ -62,7 +62,7 @@ function App() {
          };
         getData()
       }}>Refresh</button>
-    </>
+    </div>
   )
 }
 
